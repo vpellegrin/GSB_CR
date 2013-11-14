@@ -18,7 +18,7 @@ require 'Vue/_Commun/navigation.php';
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-2 control-label">Nom</label>
                         <div class="col-sm-5 col-md-4">
-                            <select class="form-control" name="simple">
+                            <select class="form-control" name="idPraticien">
                                 <?php foreach ($praticiens as $praticien) : ?>
                                     <option value="<?= $this->nettoyer($praticien['idPraticien']) ?>"><?= $this->nettoyer($praticien['nomPraticien']) . ' ' . $this->nettoyer($praticien['prenomPraticien']) ?></option>
                                 <?php endforeach; ?>
@@ -40,9 +40,9 @@ require 'Vue/_Commun/navigation.php';
                     <div class="form-group">
                         <label class="col-sm-3 col-sm-offset-2 control-label">Type</label>
                         <div class="col-sm-5 col-md-4">
-                            <select class="form-control" name="avancee">
-                                <?php foreach ($praticiens as $praticien) : ?>
-                                    <option value="<?= $this->nettoyer($praticien['idPraticien']) ?>"><?= $this->nettoyer($praticien['nomPraticien']) . ' ' . $this->nettoyer($praticien['prenomPraticien']) ?></option>
+                            <select class="form-control" name="idTypePraticien">
+                                <?php foreach ($types as $type) : ?>
+                                    <option value="<?= $this->nettoyer($type['id_type_praticien']) ?>"><?= $this->nettoyer($type['lib_type_praticien'])?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

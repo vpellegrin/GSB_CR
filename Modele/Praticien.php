@@ -6,7 +6,7 @@ require_once 'Framework/Modele.php';
 class Praticien extends Modele {
 
     // Morceau de requête SQL incluant les champs de la table praticien et type patricien
-    private $sqlPraticien = 'select id_praticien as idPraticien, nom_praticien as nomPraticien, prenom_praticien as prenomPraticien, adresse_praticien as adressePraticien, cp_praticien as cpPraticien, coef_notoriete as coefNotoriete, ville_praticien as villePraticien, lib_type_praticien as libTypePraticien, lieu_type_praticien as lieuTypePraticien  from PRATICIEN P join TYPE_PRATICIEN TP on P.id_type_praticien=TP.id_type_praticien';
+    private $sqlPraticien = 'select id_praticien as idPraticien, nom_praticien as nomPraticien, prenom_praticien as prenomPraticien, adresse_praticien as adressePraticien, cp_praticien as cpPraticien, coef_notoriete as coefNotoriete, ville_praticien as villePraticien, TP.id_type_praticien as idTypePraticien, lib_type_praticien as libTypePraticien, lieu_type_praticien as lieuTypePraticien  from PRATICIEN P join TYPE_PRATICIEN TP on P.id_type_praticien=TP.id_type_praticien';
 
     // Renvoie la liste des praticiens
     public function getPraticiens() {
@@ -24,5 +24,16 @@ class Praticien extends Modele {
         else
             throw new Exception("Aucun praticien ne correspond à l'identifiant '$idPraticien'");
     }
+    
+    //Renvoie une liste de praticien a partir de l'id du type de praticien
+    public function rechercherPraticiens($idTypePratricien) {
+        $sql = $this->sqlPraticien. ' where TP.id_type_praticien=? order by p.nom_praticien';
+        $typePraticiens = $this->executerRequete($sql, array($idTypePratricien));
+        if ($typePraticiens->rowCount() != 0)
+            return $typePraticiens;
+        
+        
+    }
+    
 
 }
