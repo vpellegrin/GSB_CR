@@ -31,6 +31,9 @@ class Praticien extends Modele {
         $typePraticiens = $this->executerRequete($sql, array($idTypePratricien));
         if ($typePraticiens->rowCount() != 0)
             return $typePraticiens;
+        else
+            throw new Exception("Aucun type de praticien ne correspond à l'identifiant '$idTypePraticien'");
+            
         
         
     }
