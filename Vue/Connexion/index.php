@@ -37,5 +37,7 @@
 
 
 <?php if (isset($msgErreur)): ?>
-    <p><?= $msgErreur ?></p>
+    <p><div class="alert alert-danger"><?= $msgErreur ?></div></p>
 <?php endif; ?>
+
+    
