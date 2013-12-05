@@ -1,7 +1,7 @@
 <?php $this->titre = "Ajout"; ?>
 
 <?php
-
+$menuComptesRendus = true;
 require 'Vue/_Commun/navigation.php';
 ?>
 
